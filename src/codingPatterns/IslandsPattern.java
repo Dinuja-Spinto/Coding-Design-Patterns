@@ -32,11 +32,19 @@ public class IslandsPattern {
 
         grid[row][col] = '0'; // Mark the cell as visited
 
+        int[] rowNbr = new int[] { -1, -1, -1, 0, 0, 1, 1, 1 };
+        int[] colNbr = new int[] { -1, 0, 1, -1, 1, -1, 0, 1 };
+
+        for (int k = 0; k < 8; k++){
+            exploreIsland(grid, row + rowNbr[k], col + colNbr[k]);
+        }
+
+
         // Explore neighboring cells (up, down, left, right)
-        exploreIsland(grid, row - 1, col);
+        /*exploreIsland(grid, row - 1, col);
         exploreIsland(grid, row + 1, col);
         exploreIsland(grid, row, col - 1);
-        exploreIsland(grid, row, col + 1);
+        exploreIsland(grid, row, col + 1);*/
 
     }
 
@@ -45,7 +53,7 @@ public class IslandsPattern {
         char[][] grid = {
                 {'1', '1', '0', '0', '0'},
                 {'1', '1', '0', '0', '0'},
-                {'0', '0', '1', '0', '0'},
+                {'0', '0', '0', '0', '0'},
                 {'0', '0', '0', '1', '1'}
         };
 
